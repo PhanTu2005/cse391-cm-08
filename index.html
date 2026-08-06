@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusMart — Module & Storage (Buoi 8)</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header class="cm-header">
+    <div class="cm-brand-wrapper">
+        <h1 data-testid="cm-brand">CampusMart</h1>
+        <p>He thong Quan ly Danh muc San pham</p>
+    </div>
+
+    <nav class="cm-nav" data-testid="cm-nav" aria-label="Menu chinh">
+        <ul>
+            <li><a href="#categories">Trang chu</a></li>
+            <li><a href="#products">San pham</a></li>
+            <li><a href="#about">Gioi thieu</a></li>
+            <li><a href="#subscribe">Dang ky</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="cm-main" id="main-content">
+
+    <section id="categories">
+        <h2>Danh muc san pham</h2>
+
+        <ul data-testid="cm-category-list">
+            <li>Ban phim</li>
+            <li>Chuot</li>
+            <li>Man hinh</li>
+        </ul>
+    </section>
+
+    <section class="cm-hero" id="hero">
+        <h2>Do choi cong nghe cho sinh vien</h2>
+        <a href="#products" class="cm-btn">
+            Xem catalog
+        </a>
+    </section>
+
+    <section
+        id="stats"
+        data-testid="cm-stats"
+        aria-live="polite">
+    </section>
+
+    <section id="products">
+
+        <h2>Danh sach san pham CORE</h2>
+
+        <label for="filter-cat">Loc theo danh muc</label>
+
+        <select
+            id="filter-cat"
+            data-testid="cm-filter-category">
+
+            <option value="all">Tat ca</option>
+            <option value="1">Ban phim</option>
+            <option value="2">Chuot</option>
+            <option value="3">Man hinh</option>
+
+        </select>
+
+        <button
+            type="button"
+            id="sort-price">
+            Gia tang dan
+        </button>
+
+        <p data-testid="cm-visible-count"></p>
+        <div class="table-wrap">
+            <div class="cm-grid" data-testid="cm-product-table">
+                
+            </div>
+        </div>
+
+    </section>
+
+    <section id="add-product">
+
+        <h2>Them san pham</h2>
+
+        <form data-testid="cm-product-form">
+
+            <label>
+                SKU
+
+                <input 
+                    name="sku"
+                    required>
+            </label>
+
+
+            <label>
+                Ten
+
+                <input
+                    name="name"
+                    required>
+            </label>
+
+
+            <label>
+                Danh muc
+
+                <select
+                    name="category_id"
+                    required>
+
+                    <option value="">
+                        -- Chon danh muc --
+                    </option>
+
+                    <option value="1">
+                        Ban phim
+                    </option>
+
+                    <option value="2">
+                        Chuot
+                    </option>
+
+                    <option value="3">
+                        Man hinh
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <label>
+                Gia
+
+                <input
+                    type="number"
+                    name="price"
+                    required>
+            </label>
+
+
+            <label>
+                So luong
+
+                <input
+                    type="number"
+                    name="qty"
+                    value="0">
+            </label>
+
+
+            <button type="submit">
+                Them san pham
+            </button>
+
+
+        </form>
+
+
+        <p 
+            id="product-form-msg"
+            aria-live="polite">
+        </p>
+
+    </section>
+
+    <section id="about">
+        <h2>Gioi thieu</h2>
+
+        <p>
+            He thong Catalog quan ly kho hang linh kien may tinh thuoc du an CampusMart.
+        </p>
+    </section>
+
+    <section id="subscribe">
+
+        <h2>Dang ky nhan tin</h2>
+
+        <form data-testid="cm-subscribe-form">
+
+            <fieldset>
+
+                <legend>Dang ky nhan tin</legend>
+
+                <p>
+                    <label for="name">Ho ten</label><br>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        required
+                        minlength="2">
+                </p>
+
+                <p>
+                    <label for="email">Email</label><br>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required>
+                </p>
+
+                <p>
+                    <label for="category">
+                        Danh muc quan tam
+                    </label><br>
+
+                    <select
+                        id="category"
+                        name="category_id"
+                        required>
+
+                        <option value="">-- Chon danh muc --</option>
+                        <option value="1">Ban phim</option>
+                        <option value="2">Chuot</option>
+                        <option value="3">Man hinh</option>
+
+                    </select>
+
+                </p>
+
+                <button type="submit">
+                    Dang ky
+                </button>
+
+            </fieldset>
+
+        </form>
+
+        <p id="form-msg" aria-live="polite"></p>
+
+    </section>
+
+    <section id="subscriber-list">
+
+        <h2>Danh sach nguoi dang ky</h2>
+
+        <ul data-testid="cm-subscriber-list">
+
+        </ul>
+
+
+    </section>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 CampusMart - CSE391</p>
+</footer>
+
+<script type="module" src="app.js"></script>
+
+<!-- CM_EXPECT product_count=8 create_sku=MN-03 count_after=9 inventory_after=50380000 modules=data.js,helpers.js,app.js --><!--
+Source Images:
+owlgaming.vn
+akko.vn
+thegioididong.com
+hanoicomputer.com
+mihome.vn
+phucanh.vn
+-->
+</body>
+</html>
